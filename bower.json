@@ -1,0 +1,34 @@
+{
+  "name": "UniversalDesignBootstrap",
+  "description": "App for developing Universally Designed for Learning courses",
+  "version": "0.0.1",
+  "homepage": "https://github.com/alexanderjfink/UniversalDesignBootstrap",
+  "author": {
+    "name": "Alexander Fink",
+    "url": "https://github.com/alexanderjfink"
+  },
+  "main": "server/server.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/js/libs",
+    "*.sublime-project",
+    "*sublime-workspace"
+  ],
+  "devDependencies": {
+    "almond": "latest",
+    "jasmine": "latest",
+    "rjs": "latest",
+    "jasmine-jquery": "latest"
+  },
+  "dependencies": {
+    "backbone": "latest",
+    "backbone-forms": "latest",
+    "lodash": "latest",
+    "jquery": "latest",
+    "requirejs": "latest",
+    "text": "latest",
+    "bootstrap": "latest",
+    "font-awesome": "latest"
+  }
+}
