@@ -1,6 +1,6 @@
 // IndexView.js
 
-define(["jquery", "backbone", "models/wizardModel", "text!templates/wizard.html"],
+define(["jquery", "backbone", "courseWizard/models/stepModel", "text!courseWizard/templates/wizard.html"],
 
     function($, Backbone, Model, template){
 

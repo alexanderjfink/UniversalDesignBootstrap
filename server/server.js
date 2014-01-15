@@ -59,4 +59,4 @@ API.api(server, schema);
 // Start Node.js Server
 http.createServer(server).listen(port);
 
-console.log('\n\nWelcome to Stacked!\n\nPlease go to http://localhost:' + port + ' to start using Require.js and Backbone.js\n\n');
+console.log('\n\nWelcome to UniversalDesignBootstrap!\n\nPlease go to http://localhost:' + port + ' to start using the app\n\n');

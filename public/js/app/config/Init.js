@@ -3,80 +3,95 @@
 
 require.config({
 
-  // Sets the js folder as the base directory for all future relative paths
-  baseUrl: "./js",
+	// Sets the js folder as the base directory for all future relative paths
+	baseUrl: "./js",
 
-  // 3rd party script alias names (Easier to type "jquery" than "libs/jquery, etc")
-  // probably a good idea to keep version numbers in the file names for updates checking
-  paths: {
+	// 3rd party script alias names (Easier to type "jquery" than "libs/jquery, etc")
+	// probably a good idea to keep version numbers in the file names for updates checking
+	paths: {
 
-      // Core Libraries
-      // ==============
+			// Core Libraries
+			// ==============
 
-      "jquery": "libs/jquery/jquery",
+			"jquery": "libs/jquery/jquery",
 
-      "underscore": "libs/lodash/dist/lodash",
+			"underscore": "libs/lodash/dist/lodash",
 
-      "backbone": "libs/backbone/backbone",
+			"backbone": "libs/backbone/backbone",
 
-      "bootstrap": "libs/bootstrap/dist/js/bootstrap",
+			"foundation": "libs/foundation/js/foundation/foundation",
 
-      // Plugins
-      // =======
+			// Plugins
+			// =======
 
-      "backbone.validateAll": "libs/plugins/Backbone.validateAll",
+			"backbone.validateAll": "libs/plugins/Backbone.validateAll",
 
-      "text": "libs/text/text",
+			"text": "libs/text/text",
 
-      // Application Folders
-      // ===================
+			// Application Folders
+			// ===================
 
-      "collections": "app/common/collections",
+			// Common
 
-      "models": "app/common/models",
+			"collections": "app/common/collections",
 
-      "routers": "app/routers",
+			"models": "app/common/models",
 
-      "templates": "app/common/templates",
+			"routers": "app/routers",
 
-      "views": "app/common/views",
+			"templates": "app/common/templates",
 
-      "events": "app/events"
+			"views": "app/common/views",
 
-  },
+			"events": "app/events",
 
-  // Sets the configuration for your third party scripts that are not AMD compatible
-  shim: {
+			// Sub apps
 
-      // Bootstrap
-      "bootstrap": ["jquery"],
+			"courseWizard": "app/courseWizard",
 
-      // Backbone
-      "backbone": {
+			"courseEditor": "app/courseEditor",
 
-        // Depends on underscore/lodash and jQuery
-        "deps": ["underscore", "jquery"],
+			"syllabusGenerator": "app/syllabusGenerator"
 
-        // Exports the global window.Backbone object
-        "exports": "Backbone"
+	},
 
-      },
+	// Sets the configuration for your third party scripts that are not AMD compatible
+	shim: {
 
-      // Backbone.validateAll plugin that depends on Backbone
-      "backbone.validateAll": ["backbone"]
+			// Bootstrap
+			"bootstrap": ["jquery"],
 
-  }
+			// Backbone
+			"backbone": {
+
+				// Depends on underscore/lodash and jQuery
+				"deps": ["underscore", "jquery"],
+
+				// Exports the global window.Backbone object
+				"exports": "Backbone"
+
+			},
+
+			// Backbone.validateAll plugin that depends on Backbone
+			"backbone.validateAll": ["backbone"]
+
+	}
 
 });
 
 // Includes Desktop Specific JavaScript files here (or inside of your Desktop router)
-require(["jquery", "backbone", "routers/Router", "bootstrap", "backbone.validateAll"],
+require(["jquery", "backbone", "routers/Router", "foundation", "backbone.validateAll"],
 
-  function($, Backbone, Router) {
+	function($, Backbone, Router) {
 
-    // Instantiates a new Desktop Router instance
-    new Router();
+		// Instantiates a new Desktop Router instance
+		new Router();
 
-  }
+		setTimeout(function() {
+			require(['foundation'], function (foundation) {
+				$(document).foundation();
+			});
+		});
+	}
 
 );

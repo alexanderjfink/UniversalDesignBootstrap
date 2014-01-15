@@ -1,6 +1,4 @@
-// Router.js
-
-define(["jquery", "backbone", "common/models/syllabusModel", "syllabusWizard/views/wizardView", "common/collections/syllabusCollection"],
+define(["jquery", "backbone", "models/syllabusModel", "courseWizard/views/view", "collections/syllabusCollection"],
 
     function($, Backbone, Model, View, Collection) {
 

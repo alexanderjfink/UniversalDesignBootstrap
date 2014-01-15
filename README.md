@@ -13,5 +13,7 @@ Currently doesn't do anything -- in development. Do not attempt to use.
 
 ## The Stack
 RequireJS + Backbone + Backbone-Forms
+
 Express + Mongoose
+
 Node.js + MongoDB

@@ -28,7 +28,7 @@
     "jquery": "latest",
     "requirejs": "latest",
     "text": "latest",
-    "bootstrap": "latest",
+    "foundation": "zurb/bower-foundation",
     "font-awesome": "latest"
   }
 }
