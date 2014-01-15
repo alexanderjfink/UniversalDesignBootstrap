@@ -29,6 +29,8 @@
     "requirejs": "latest",
     "text": "latest",
     "foundation": "zurb/bower-foundation",
-    "font-awesome": "latest"
+    "font-awesome": "latest",
+    "dustjs-linkedin": "~2.2.3",
+    "require-dust": "*"
   }
 }

@@ -6,6 +6,7 @@ var Config =  global.Config = require('./config/config.js').config;
     http =    require("http"),
     port =    ( process.env.PORT || Config.listenPort ),
     server =  module.exports = express(),
+    cons =    require('consolidate')
     mongoose =     require('mongoose'),
     API =     require('./API');
 
@@ -48,6 +49,10 @@ server.configure(function() {
   server.use(express.session({ secret: Config.sessionSecret }));
 
   server.use(server.router);
+
+  server.engine('dust', cons.dust);
+  server.set('view engine', 'dust') // set dust as templating engine
+
 
 });
 

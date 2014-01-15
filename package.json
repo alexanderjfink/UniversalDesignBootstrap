@@ -2,7 +2,7 @@
   "name": "UniversalDesignBootstrap",
   "description": "App for developing Universally Designed for Learning courses",
   "version": "0.0.1",
-  "homepage": "https://github.com/alexanderjfink/UniversalDesignBootstrap",
+  "homepage": "https://alexanderjfink.github.io/UniversalDesignBootstrap",
   "author": {
     "name": "Alexander Fink",
     "url": "https://github.com/alexanderjfink"
@@ -11,9 +11,8 @@
     "type": "git",
     "url": "git@github.com:alexanderjfink/UniversalDesignBootstrap.git"
   },
-  "homepage": "https://alexanderjfink.github.io/UniversalDesignBootstrap",
   "keywords": [
-    "learning", 
+    "learning",
     "teaching",
     "education",
     "higher education",
@@ -30,7 +29,8 @@
   },
   "main": "./server/server",
   "dependencies": {
-    "express": "3.x"
+    "express": "3.x",
+    "consolidate": "~0.10.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
