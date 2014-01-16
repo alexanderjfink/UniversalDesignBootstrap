@@ -1,4 +1,4 @@
-define(["jquery", "backbone"],
+define(['jquery', 'backbone'],
 
 	function($, Backbone) {
 
@@ -30,14 +30,9 @@ define(["jquery", "backbone"],
 			validate: function(attrs) {
 
 			},
-
-			
-
 		});
 
 		// Returns the Model class
 		return activityModel;
-
 	}
-
 );

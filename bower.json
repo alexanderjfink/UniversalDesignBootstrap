@@ -31,6 +31,7 @@
     "foundation": "zurb/bower-foundation",
     "font-awesome": "latest",
     "dustjs-linkedin": "~2.2.3",
-    "require-dust": "*"
+    "require-dust": "*",
+    "backbone.marionette": "~1.5.1"
   }
 }

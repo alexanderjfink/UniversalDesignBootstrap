@@ -1,4 +1,4 @@
 node_modules
-public/js/libs/*
-!public/js/libs/plugins
+public/javascripts/vendor/*
+!public/javascripts/vendor/plugins
 server/config/**

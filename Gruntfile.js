@@ -27,7 +27,7 @@ module.exports = function(grunt) {
 		requirejs: {
 			mainJS: {
 				options: {
-					baseUrl: "public/js/",
+					baseUrl: "public/javascripts/",
 					paths: {
 						"desktop": "app/config/Init"
 					},
@@ -35,21 +35,21 @@ module.exports = function(grunt) {
 					name: "libs/almond/almond",
 					preserveLicenseComments: false,
 					optimize: "uglify",
-					mainConfigFile: "public/js/app/config/Init.js",
+					mainConfigFile: "public/javascripts/app/config/Init.js",
 					include: ["desktop"],
-					out: "public/js/app/config/Init.min.js"
+					out: "public/javascripts/app/config/Init.min.js"
 				}
 			},
 			mainCSS: {
 				options: {
 					optimizeCss: "standard",
-					cssIn: "./public/css/app.css",
-					out: "./public/css/app.min.css"
+					cssIn: "./public/stylesheets/app.css",
+					out: "./public/stylesheets/app.min.css"
 				}
 			}
 		},
 		jshint: {
-			files: ['Gruntfile.js', 'public/js/app/**/*.js', '!public/js/app/**/*min.js'],
+			files: ['Gruntfile.js', 'public/javascripts/app/**/*.js', '!public/javascripts/app/**/*min.js'],
 			options: {
 				globals: {
 					jQuery: true,
@@ -69,23 +69,23 @@ module.exports = function(grunt) {
 		},
 		shell: {
 			copyFoundationCSS: {
-				command: 'cp ./public/js/libs/foundation/css/foundation.css ./public/css/foundation.css && cp ./public/js/libs/foundation/css/normalize.css ./public/css/normalize.css'
+				command: 'cp ./public/javascripts/vendor/foundation/css/foundation.css ./public/stylesheets/foundation.css && cp ./public/javascripts/vendor/foundation/css/normalize.css ./public/stylesheets/normalize.css'
 			},
 			copyFontAwesomeCSS: {
-				command: 'cp ./public/js/libs/font-awesome/css/font-awesome.css ./public/css/font-awesome.css && cp ./public/js/libs/font-awesome/css/font-awesome-ie7.css ./public/css/font-awesome-ie7.css'
+				command: 'cp ./public/javascripts/vendor/font-awesome/css/font-awesome.css ./public/stylesheets/font-awesome.css && cp ./public/javascripts/vendor/font-awesome/css/font-awesome-ie7.css ./public/stylesheets/font-awesome-ie7.css'
 			},
 			copyFontAwesomeFonts: {
-				command: 'cp -r ./public/js/libs/font-awesome/font/* ./public/font'
+				command: 'cp -r ./public/javascripts/vendor/font-awesome/font/* ./public/font'
 			}
 		},
 		/*
 		less: {
 			production: {
 				options: {
-					paths: ["public/css"]
+					paths: ["public/stylesheets"]
 				},
 				files: {
-					"public/css/includes/css/custom.css": "public/css/includes/less/custom.less"
+					"public/stylesheets/includes/css/custom.css": "public/stylesheets/includes/less/custom.less"
 				}
 			}
 		}
@@ -94,14 +94,14 @@ module.exports = function(grunt) {
 		// Custom compile Foundation's SCSS
 		sass: {
 			options: {
-				includePaths: ['public/js/libs/foundation/scss']
+				includePaths: ['public/javascripts/vendor/foundation/scss']
 			},
 			dist: {
 				options: {
 					outputStyle: 'compressed'
 				},
 				files: {
-					'public/css/includes/css/custom.css': 'public/css/includes/scss/custom.scss'
+					'public/stylesheets/includes/css/custom.css': 'public/stylesheets/includes/scss/custom.scss'
 				}
 			}
 		},
@@ -110,7 +110,7 @@ module.exports = function(grunt) {
 			grunt: { files: ['Gruntfile.js'] },
 
 			sass: {
-				files: 'public/css/scss/**/*.scss',
+				files: 'public/stylesheets/scss/**/*.scss',
 				tasks: ['scss']
 			}
 		}

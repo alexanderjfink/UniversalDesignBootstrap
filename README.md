@@ -12,7 +12,7 @@ Currently doesn't do anything -- in development. Do not attempt to use.
 ## Sub Apps
 
 ## The Stack
-RequireJS + Backbone + Backbone-Forms
+RequireJS + Backbone + Backbone.Marionette + Backbone-Forms
 
 Express + Mongoose
 

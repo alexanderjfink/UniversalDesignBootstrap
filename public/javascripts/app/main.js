@@ -1,14 +1,11 @@
-window.app = {
-	state: {}
-};
-
 requirejs.config({
-	baseUrl: '/js/libs',
+	baseUrl: '/javascripts/vendor',
 	paths: {
 		app: '../app',
 		text: 'requirejs-text/text',
 		jquery: 'jquery/jquery',
 		backbone: 'backbone/backbone',
+		marionette: 'backbone.marionette/lib/core/amd/backbone.marionette',
 		forms: 'backbone-forms/distribution.amd/backbone-forms',
 		foundation: 'foundation/js/foundation',
 		lodash: 'lodash/dist/lodash',
@@ -26,16 +23,25 @@ requirejs.config({
 		},
 		'lodash': {
 				exports: '_'
+		},
+		'marionette': {
+			exports: 'Backbone.Marionette',
+			deps: ['backbone']
 		}
 	}
 
 });
 
-require(['jquery',
-		'app/courseWizard/main',
-		'app/common/models/userModel'], function ($, app, UserModel) {
 
-	window.app.state.user = new UserModel();
+// Currently just going to Wizard, but should go to "interface" eventually
+require(['wizard/app','jquery','backbone','routers/wizard','wizard/controllers/index'],function(app,$,Backbone,Router,Controller){
+	"use strict";
+
+	app.start();
+	
+	new Router({
+		controller : Controller
+	});
 	
 	// This makes links hit the router instead of redirecting
 	$(document).on("click", "a[href]:not([data-bypass])", function(evt) {
