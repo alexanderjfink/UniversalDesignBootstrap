@@ -1,5 +1,3 @@
-// IndexCollection.js
-
 define(["jquery", "backbone", "models/outcomeModel"],
 	function($, Backbone, Model) {
 

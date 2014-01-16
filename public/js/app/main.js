@@ -3,14 +3,15 @@ window.app = {
 };
 
 requirejs.config({
-	baseUrl: '/javascripts/vendor',
+	baseUrl: '/js/libs',
 	paths: {
 		app: '../app',
 		text: 'requirejs-text/text',
 		jquery: 'jquery/jquery',
 		backbone: 'backbone/backbone',
+		forms: 'backbone-forms/distribution.amd/backbone-forms',
 		foundation: 'foundation/js/foundation',
-		underscore: 'underscore/underscore',
+		lodash: 'lodash/dist/lodash',
 		rdust: 'require-dust/rdust',
 		dust: 'dustjs-linkedin/dist/dust-full-2.2.3'
 	},
@@ -18,12 +19,12 @@ requirejs.config({
 		'backbone': {
 			//These script dependencies should be loaded before loading
 			//backbone.js
-			deps: ['underscore', 'jquery'],
+			deps: ['lodash', 'jquery'],
 			//Once loaded, use the global 'Backbone' as the
 			//module value.
 			exports: 'Backbone'
 		},
-		'underscore': {
+		'lodash': {
 				exports: '_'
 		}
 	}

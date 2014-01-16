@@ -50,6 +50,8 @@ server.configure(function() {
 
   server.use(server.router);
 
+  server.set('views', __dirname + '/views');
+
   server.engine('dust', cons.dust);
   server.set('view engine', 'dust') // set dust as templating engine
 

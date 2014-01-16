@@ -5,7 +5,16 @@ define(["jquery", "backbone"],
         // Creates a new Backbone Model class object
         var assessmentModel = Backbone.Model.extend({
 
+            // Properties
+            schema: {
+                name: 'Text',
+                description: 'TextArea',
+            }
+
+            // Backbone
+
             url: '',
+
 
             // Model Constructor
             initialize: function() {
@@ -20,7 +29,9 @@ define(["jquery", "backbone"],
             // Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)
             validate: function(attrs) {
 
-            }
+            },
+
+            
 
         });
 

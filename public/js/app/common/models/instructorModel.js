@@ -1,32 +1,47 @@
 define(["jquery", "backbone"],
 
-    function($, Backbone) {
+	function($, Backbone) {
 
-        // Creates a new Backbone Model class object
-        var instructorModel = Backbone.Model.extend({
+		// Creates a new Backbone Model class object
+		var instructorModel = Backbone.Model.extend({
 
-            url: '',
+			// Properties
+			schema: {
+				title: { type: 'Select', options: ['Professor','Dr','Mr', 'Mrs', 'Ms'] },
+				name: 'Text',
+				degrees: 'Text',
+				email: { validators: ['required', 'email'] },
+				address: { type: 'NestedModel', model: Address }
+			}
 
-            // Model Constructor
-            initialize: function() {
 
-            },
+			// Backbone
 
-            // Default values for all of the Model attributes
-            defaults: {
+			url: '',
 
-            },
 
-            // Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)
-            validate: function(attrs) {
+			// Model Constructor
+			initialize: function() {
 
-            }
+			},
 
-        });
+			// Default values for all of the Model attributes
+			defaults: {
 
-        // Returns the Model class
-        return instructorModel;
+			},
 
-    }
+			// Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)
+			validate: function(attrs) {
+
+			},
+
+			
+
+		});
+
+		// Returns the Model class
+		return instructorModel;
+
+	}
 
 );

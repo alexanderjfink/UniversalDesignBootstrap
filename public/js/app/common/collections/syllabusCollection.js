@@ -1,5 +1,3 @@
-// IndexCollection.js
-
 define(["jquery", "backbone", "models/syllabusModel"],
 	function($, Backbone, Model) {
 
@@ -15,5 +13,4 @@ define(["jquery", "backbone", "models/syllabusModel"],
 		return syllabusCollection;
 
 	}
-
 );
