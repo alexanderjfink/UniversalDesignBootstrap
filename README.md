@@ -6,10 +6,19 @@ Bootstrap of Higher Education Level Syllabus using Universal Course Design for L
 NOTE: Currently doesn't do anything -- in development. Do not attempt to use.
 
 ## Project Goals
+Make Universal Design for Learning (UDL) more..., well..., universal. UDL approaches to developing courses/workshops/onboarding processes/trainings have been rapidly adopted in relevant scholarly and practitioner communities, but largely ignored by the swathes of folks engaged in doing most of the course creation. This tool will help make this more possible by:
 
-## Data Schema
+- Providing an easy to use course design wizard that:
+	- Guides a step by step process of course creation using backwards-design principles (aims, then activities and assessments)
+	- Teaches users about UDL principles as it proceeds
+	- Provides numerous examples at each step of the way to assist in learning
+	- Provide template/commonly used aims, activities, assessments, and policies that encourage UDL
+	- Develop modular, re-usable code
+- Export designed courses into a final text editor for editing
+- Allow designed courses to be published in multiple formats: PDF, DocX, HTML, LaTeX
+- Eventually allow export of courses into course platforms like Moodle
 
-## Sub Apps
+## Modules
 
 ### wizard (reusable)
 Uses schemas (from `backbone-forms`) defined on models (in any Marionette module) to generate a multi-step wizard as configured in `config.js`.
