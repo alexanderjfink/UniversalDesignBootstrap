@@ -1,5 +1,4 @@
 define(function(require) {
-	"use strict";
 
 	return {
 		wizard				: require('rdust!templates/wizard.dust'),

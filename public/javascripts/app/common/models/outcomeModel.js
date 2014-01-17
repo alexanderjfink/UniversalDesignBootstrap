@@ -1,42 +1,34 @@
-define(["jquery", "backbone"],
+define(['jquery', 'backbone'], function($, Backbone) {
 
-	function($, Backbone) {
+	// Creates a new Backbone Model class object
+	var outcomeModel = Backbone.Model.extend({
 
-		// Creates a new Backbone Model class object
-		var outcomeModel = Backbone.Model.extend({
+		// Properties
+		schema: {
+			name: 'Text'
+		},
 
-			// Properties
-			schema: {
-				name: 'Text',
-			}
+		// Backbone
 
-			// Backbone
-
-			url: '',
+		url: '',
 
 
-			// Model Constructor
-			initialize: function() {
+		// Model Constructor
+		initialize: function() {
 
-			},
+		},
 
-			// Default values for all of the Model attributes
-			defaults: {
+		// Default values for all of the Model attributes
+		defaults: {
 
-			},
+		},
 
-			// Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)
-			validate: function(attrs) {
+		// Gets called automatically by Backbone when the set and/or save methods are called (Add your own logic)
+		validate: function(attrs) {
 
-			},
+		}
+	});
 
-			
-
-		});
-
-		// Returns the Model class
-		return outcomeModel;
-
-	}
-
-);
+	// Returns the Model class
+	return outcomeModel;
+});

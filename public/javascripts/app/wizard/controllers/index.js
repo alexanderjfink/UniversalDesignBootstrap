@@ -1,11 +1,10 @@
-/*global define*/
-
 define(['vent'], function (vent) {
-	"use strict";
 
 	return {
-		setFilter : function(param) {
-		  vent.trigger('todoList:filter', param.trim() || '');
+		step : function(stepNumber) {
+			// send the step number that was requested
+			vent.trigger('wizardModule:step:showStep', stepNumber.trim() || '');
 		}
 	};
+
 });

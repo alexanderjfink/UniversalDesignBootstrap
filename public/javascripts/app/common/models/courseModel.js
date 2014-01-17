@@ -1,9 +1,18 @@
 define(['jquery', 'backbone'], function($, Backbone) {
 
-	// Creates a new Backbone Model class object
-	var syllabusModel = Backbone.Model.extend({
+		// Creates a new Backbone Model class object
+	var courseModel = Backbone.Model.extend({
+
+		// Properties
+		schema: {
+			name: 'Text',
+			description: 'TextArea'
+		},
+
+		// Backbone
 
 		url: '',
+
 
 		// Model Constructor
 		initialize: function() {
@@ -19,8 +28,9 @@ define(['jquery', 'backbone'], function($, Backbone) {
 		validate: function(attrs) {
 
 		}
+
 	});
 
 	// Returns the Model class
-	return syllabusModel;
+	return courseModel;
 });

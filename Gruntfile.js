@@ -25,21 +25,21 @@ module.exports = function(grunt) {
 			}
 		},
 		requirejs: {
-			mainJS: {
-				options: {
-					baseUrl: "public/javascripts/",
-					paths: {
-						"desktop": "app/config/Init"
-					},
-					wrap: true,
-					name: "libs/almond/almond",
-					preserveLicenseComments: false,
-					optimize: "uglify",
-					mainConfigFile: "public/javascripts/app/config/Init.js",
-					include: ["desktop"],
-					out: "public/javascripts/app/config/Init.min.js"
-				}
-			},
+			//	mainJS: {
+			//		options: {
+			//			baseUrl: "public/javascripts/",
+			//			paths: {
+			//				"desktop": "app/config/Init"
+			//			},
+			//			wrap: true,
+			//			name: "vendor/almond/almond",
+			//			preserveLicenseComments: false,
+			//			optimize: "uglify",
+			//			mainConfigFile: "public/javascripts/app/config/Init.js",
+			//			include: ["desktop"],
+			//			out: "public/javascripts/app/config/Init.min.js"
+			//		}
+			//	},
 			mainCSS: {
 				options: {
 					optimizeCss: "standard",
@@ -125,9 +125,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-sass');
 
 	grunt.registerTask('test', ['jshint', 'mochaTest' ]);
-	grunt.registerTask('init', ['shell:copyFoundationCSS', 'shell:copyFontAwesomeCSS', 'shell:copyFontAwesomeFonts','sass', 'requirejs:mainJS', 'requirejs:mainCSS']);
-	grunt.registerTask('build', ['sass', 'requirejs:mainJS', 'requirejs:mainCSS']);
+	grunt.registerTask('init', ['shell:copyFoundationCSS', 'shell:copyFontAwesomeCSS', 'shell:copyFontAwesomeFonts','sass', 'requirejs:mainCSS']); // 'requirejs:mainJS', 
+	grunt.registerTask('build', ['sass', 'requirejs:mainCSS']); // 'requirejs:mainJS', 
 	grunt.registerTask('server', ['sass','nodemon:dev']);
-	grunt.registerTask('default', ['init', 'test', 'build']);
+	grunt.registerTask('default', ['init', 'build']); // 'test', 
 
 };

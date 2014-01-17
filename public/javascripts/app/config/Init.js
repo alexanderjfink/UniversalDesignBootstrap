@@ -4,29 +4,29 @@
 require.config({
 
 	// Sets the js folder as the base directory for all future relative paths
-	baseUrl: "./js",
+	baseUrl: "./javascripts",
 
-	// 3rd party script alias names (Easier to type "jquery" than "libs/jquery, etc")
+	// 3rd party script alias names (Easier to type "jquery" than "vendor/jquery, etc")
 	// probably a good idea to keep version numbers in the file names for updates checking
 	paths: {
 
 			// Core Libraries
 			// ==============
 
-			"jquery": "libs/jquery/jquery",
+			"jquery": "vendor/jquery/jquery",
 
-			"underscore": "libs/lodash/dist/lodash",
+			"underscore": "vendor/lodash/dist/lodash",
 
-			"backbone": "libs/backbone/backbone",
+			"backbone": "vendor/backbone/backbone",
 
-			"foundation": "libs/foundation/js/foundation/foundation",
+			"foundation": "vendor/foundation/js/foundation/foundation",
 
 			// Plugins
 			// =======
 
-			"backbone.validateAll": "libs/plugins/Backbone.validateAll",
+			"backbone.validateAll": "vendor/plugins/Backbone.validateAll",
 
-			"text": "libs/text/text",
+			"text": "vendor/text/text",
 
 			// Application Folders
 			// ===================

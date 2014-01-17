@@ -1,7 +1,4 @@
-/*global define*/
-
-define(['marionette','templates'], function (Marionette,templates) {
-	"use strict";
+define(['marionette','templates','../models/stepModel'], function (Marionette,templates) {
 
 	return Marionette.CompositeView.extend({
 		tagName : 'li',
@@ -24,11 +21,11 @@ define(['marionette','templates'], function (Marionette,templates) {
 
 		onRender : function() {
 			var form = new Backbone.Form({
-				model: 
+				model: stepModel
 			});
-			// this.$el.removeClass('active completed');
-			// if (this.model.get('completed')) this.$el.addClass('completed');
-			// else this.$el.addClass('active');
+			//	this.$el.removeClass('active completed');
+			//	if (this.model.get('completed')) this.$el.addClass('completed');
+			//	else this.$el.addClass('active');
 		},
 
 		destroy : function() {

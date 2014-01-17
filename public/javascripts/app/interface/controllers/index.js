@@ -1,9 +1,10 @@
 define(['vent'], function (vent) {
 
-  return {
-    setFilter : function(param) {
-      vent.trigger('todoList:filter', param.trim() || '');
-    }
-  };
+	return {
+		showWizard: function(stepNumber) {
+			// send the step number that was requested
+			vent.trigger('wizardModule:showWizard');
+		}
+	};
 
 });

@@ -18,6 +18,31 @@ Make Universal Design for Learning (UDL) more..., well..., universal. UDL approa
 - Allow designed courses to be published in multiple formats: PDF, DocX, HTML, LaTeX
 - Eventually allow export of courses into course platforms like Moodle
 
+## Application Structure
+
+- public
+	- fonts
+	- images
+	- javascripts
+		- app
+			- common
+			- config
+			- docGenerator
+			- interface
+			- wizard
+				- collections
+				- controllers
+				- models
+				- routers
+				- templates
+				- views
+				config.js 		provides schema definition for wizard steps
+				module.js 		serves as the module main for each module
+				templates.js 	specifies templates present in module
+		- tests
+		- vendor
+	- stylesheets
+
 ## Modules
 
 ### wizard (reusable)
@@ -26,6 +51,8 @@ Uses schemas (from `backbone-forms`) defined on models (in any Marionette module
 Config sets up the "steps" and associated models to go through, as well as options for each step (URL to fetch template data from, whether a step should be completed once, or can create multiple models, etc.). Models should be able to have 1:1 and 1:N relationships (using `backbone-association`) with other models, and wizard should handle this neatly.
 
 Should eventually be able to load completed steps and re-start a users session based on current step.
+
+User's models are responsible for storage.
 
 ### docGenerator (reusable)
 Uses schema as defined in `config.js` to create a document in a Substance instance.

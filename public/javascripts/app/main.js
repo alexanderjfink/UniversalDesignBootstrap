@@ -37,29 +37,23 @@ requirejs.config({
 		},
 		'lodash': {
 			exports: '_'
-		},
-		// Perhaps don't need shim because loading from an AMD dist of Marionette
-		// 'marionette': {
-		// 	deps : ['jquery', 'lodash', 'backbone'],
-		// 	exports: 'Backbone.Marionette'
-		// }
+		}
+		//	Perhaps don't need shim because loading from an AMD dist of Marionette
+		//	'marionette': {
+		//		deps : ['jquery', 'lodash', 'backbone'],
+		//		exports: 'Backbone.Marionette'
+		//	}
 	}
 
 });
 
-require(['udbapp',
-		'wizard/module',
-		'jquery',
+require(['jquery',
 		'backbone',
-		'interface/routers/index', // Use interface routers/controllers to drive the basic application
-		'interface/controllers/index'], function(UDBApp,wizard,$,Backbone,Router,Controller){
+		'udbapp'], function($, Backbone, UDBApp){
 
+	// Start Marionette application (as defined in app/app.js)
 	UDBApp.start();
-	
-	new Router({
-		controller : Controller
-	});
-	
+
 	// This makes links hit the router instead of redirecting
 	$(document).on("click", "a[href]:not([data-bypass])", function(evt) {
 		// Get the absolute anchor href.

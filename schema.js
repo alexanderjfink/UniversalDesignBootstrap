@@ -1,5 +1,5 @@
 {
-	globalSettings: {
+	settings: {
 		courseName: "",						// name of course
 		courseDescription: "",				// brief overview of the course
 		categories: ["weeks", "themes"],	// way the course is organized
