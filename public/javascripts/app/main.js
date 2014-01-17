@@ -1,16 +1,30 @@
 requirejs.config({
 	baseUrl: '/javascripts/vendor',
 	paths: {
+
+		// App related paths
+
 		app: '../app',
+		udbapp: '../app/app',
+		vent: '../app/vent',
+
+		// Major deps paths
+
 		text: 'requirejs-text/text',
 		jquery: 'jquery/jquery',
-		backbone: 'backbone/backbone',
+		lodash: 'lodash/dist/lodash',
+
+		// Backbone & plugins
+
+		backbone: 'backbone/backbone', // Backbone and plugins
 		marionette: 'backbone.marionette/lib/core/amd/backbone.marionette',
 		forms: 'backbone-forms/distribution.amd/backbone-forms',
-		foundation: 'foundation/js/foundation',
-		lodash: 'lodash/dist/lodash',
-		rdust: 'require-dust/rdust',
-		dust: 'dustjs-linkedin/dist/dust-full-2.2.3'
+		
+		// Templates / Design
+
+		dust: 'dustjs-linkedin/dist/dust-full-2.2.3',
+		rdust: 'require-dust/rdust', // Use dust for templating
+		foundation: 'foundation/js/foundation' // Use Foundation5 for CSS/JS templates
 	},
 	shim: {
 		'backbone': {
@@ -22,22 +36,25 @@ requirejs.config({
 			exports: 'Backbone'
 		},
 		'lodash': {
-				exports: '_'
+			exports: '_'
 		},
-		'marionette': {
-			exports: 'Backbone.Marionette',
-			deps: ['backbone']
-		}
+		// Perhaps don't need shim because loading from an AMD dist of Marionette
+		// 'marionette': {
+		// 	deps : ['jquery', 'lodash', 'backbone'],
+		// 	exports: 'Backbone.Marionette'
+		// }
 	}
 
 });
 
+require(['udbapp',
+		'wizard/module',
+		'jquery',
+		'backbone',
+		'interface/routers/index', // Use interface routers/controllers to drive the basic application
+		'interface/controllers/index'], function(UDBApp,wizard,$,Backbone,Router,Controller){
 
-// Currently just going to Wizard, but should go to "interface" eventually
-require(['wizard/app','jquery','backbone','routers/wizard','wizard/controllers/index'],function(app,$,Backbone,Router,Controller){
-	"use strict";
-
-	app.start();
+	UDBApp.start();
 	
 	new Router({
 		controller : Controller
