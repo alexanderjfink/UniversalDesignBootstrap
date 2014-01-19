@@ -30,8 +30,8 @@
     "text": "latest",
     "foundation": "zurb/bower-foundation",
     "font-awesome": "latest",
-    "dustjs-linkedin": "~2.2.3",
-    "require-dust": "*",
-    "backbone.marionette": "~1.5.1"
+    "backbone.marionette": "~1.5.1",
+    "handlebars": "~1.3.0",
+    "require-handlebars-plugin": "~0.7.0"
   }
 }

@@ -1,7 +1,7 @@
 UniversalDesignBootstrap
 ========================
 
-Bootstrap of Higher Education Level Syllabus using Universal Course Design for Learning
+Open source, opinionated, course design and development using Universal Design for Learning (UDL) principles.
 
 NOTE: Currently doesn't do anything -- in development. Do not attempt to use.
 

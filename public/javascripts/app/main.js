@@ -12,37 +12,33 @@ requirejs.config({
 
 		text: 'requirejs-text/text',
 		jquery: 'jquery/jquery',
-		lodash: 'lodash/dist/lodash',
+		underscore: 'lodash/dist/lodash', // loading lodash, but apparently need to pretend it is underscore
 
 		// Backbone & plugins
 
 		backbone: 'backbone/backbone', // Backbone and plugins
 		marionette: 'backbone.marionette/lib/core/amd/backbone.marionette',
+		'backbone.wreqr': 'backbone.wreqr/lib/amd/backbone.wreqr',
+		'backbone.babysitter': 'backbone.babysitter/lib/amd/backbone.babysitter',
 		forms: 'backbone-forms/distribution.amd/backbone-forms',
 		
 		// Templates / Design
-
-		dust: 'dustjs-linkedin/dist/dust-full-2.2.3',
-		rdust: 'require-dust/rdust', // Use dust for templating
+		handlebars: 'handlebars/handlebars.amd',
+		hbs: 'require-handlebars-plugin/hbs', // for tempalting
 		foundation: 'foundation/js/foundation' // Use Foundation5 for CSS/JS templates
 	},
 	shim: {
 		'backbone': {
 			//These script dependencies should be loaded before loading
 			//backbone.js
-			deps: ['lodash', 'jquery'],
+			deps: ['underscore', 'jquery'],
 			//Once loaded, use the global 'Backbone' as the
 			//module value.
 			exports: 'Backbone'
 		},
-		'lodash': {
+		'underscore': {
 			exports: '_'
 		}
-		//	Perhaps don't need shim because loading from an AMD dist of Marionette
-		//	'marionette': {
-		//		deps : ['jquery', 'lodash', 'backbone'],
-		//		exports: 'Backbone.Marionette'
-		//	}
 	}
 
 });

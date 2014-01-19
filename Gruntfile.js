@@ -68,6 +68,9 @@ module.exports = function(grunt) {
 			}
 		},
 		shell: {
+			copyDustJSHelpers: {
+				command: 'cp -r ./node_modules/dustjs-helpers ./public/javascripts/vendor/'
+			},
 			copyFoundationCSS: {
 				command: 'cp ./public/javascripts/vendor/foundation/css/foundation.css ./public/stylesheets/foundation.css && cp ./public/javascripts/vendor/foundation/css/normalize.css ./public/stylesheets/normalize.css'
 			},
@@ -125,7 +128,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-sass');
 
 	grunt.registerTask('test', ['jshint', 'mochaTest' ]);
-	grunt.registerTask('init', ['shell:copyFoundationCSS', 'shell:copyFontAwesomeCSS', 'shell:copyFontAwesomeFonts','sass', 'requirejs:mainCSS']); // 'requirejs:mainJS', 
+	grunt.registerTask('init', ['shell:copyDustJSHelpers','shell:copyFoundationCSS', 'shell:copyFontAwesomeCSS', 'shell:copyFontAwesomeFonts','sass', 'requirejs:mainCSS']); // 'requirejs:mainJS', 
 	grunt.registerTask('build', ['sass', 'requirejs:mainCSS']); // 'requirejs:mainJS', 
 	grunt.registerTask('server', ['sass','nodemon:dev']);
 	grunt.registerTask('default', ['init', 'build']); // 'test', 

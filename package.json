@@ -31,7 +31,7 @@
   "dependencies": {
     "express": "3.x",
     "consolidate": "~0.10.0",
-    "dustjs-linkedin": "~2.2.3"
+    "handlebars": "~1.3.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

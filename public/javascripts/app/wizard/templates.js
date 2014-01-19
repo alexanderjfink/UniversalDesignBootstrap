@@ -1,10 +1,10 @@
 define(function(require) {
 
 	return {
-		wizard				: require('rdust!templates/wizard.dust'),
-		footer              : require('rdust!templates/footer.dust'),
-		header              : require('rdust!templates/header.dust'),
-		stepItemView		: require('rdust!templates/stepItemView.dust'),
-		stepCompositeView	: require('rdust!templates/stepCompositeView.dust')
+		header: require('hbs!./templates/header'),
+		footer: require('hbs!./templates/footer'),
+		wizard: require('hbs!./templates/wizard'),
+		stepItemView: require('hbs!./templates/stepItemView'),
+		stepCompositeView: require('hbs!./templates/stepCompositeView')
 	};
 });

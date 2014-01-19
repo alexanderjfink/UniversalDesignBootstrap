@@ -1,4 +1,4 @@
-define(['marionette','templates','../models/stepModel'], function (Marionette,templates) {
+define(['marionette','../templates','../models/stepModel'], function (Marionette,templates) {
 
 	return Marionette.CompositeView.extend({
 		tagName : 'li',

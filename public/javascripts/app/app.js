@@ -1,6 +1,6 @@
 define(['marionette',
-		'interface/routers/index', // Use interface routers/controllers to drive the basic application
-		'interface/controllers/index'], function (Marionette, Router, Controller) {
+		'app/interface/routers/index', // Use interface routers/controllers to drive the basic application
+		'app/interface/controllers/index'], function (Marionette, Router, Controller) {
 
     // set up the app instance
     var UDBApp = new Marionette.Application();

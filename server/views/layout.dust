@@ -4,11 +4,11 @@
 		<meta name='viewport' content='width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no' />
 
 		<title>{title}</title>
-		<link rel='stylesheet' href='/css/foundation.css' />
-		<link rel='stylesheet' href='/css/app.css' />
+		<link rel='stylesheet' href='/stylesheets/foundation.css' />
+		<link rel='stylesheet' href='/stylesheets/app.css' />
 
-		<script type='text/javascript' src='/js/libs/modernizr/modernizr.js'></script>
-		<script type='text/javascript' src='/js/libs/requirejs/require.js' data-main='/js/app/main'></script>
+		<script type='text/javascript' src='/javascripts/vendor/modernizr/modernizr.js'></script>
+		<script type='text/javascript' src='/javascripts/vendor/requirejs/require.js' data-main='/javascripts/app/main'></script>
 
 	</head>
 	<body>
