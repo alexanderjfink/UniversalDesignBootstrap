@@ -9,14 +9,16 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 				
 				this.stepNumber = options.stepNumber || 0;
 				this.title = options.title || 'Loading Steps...';
+				this.shortDescription = options.shortDescription;
 			},
 
 			// fake model
 			serializeData: function(){
 				return {
 					title: this.title,
-					stepNumber: this.stepNumber
-				}
+					stepNumber: this.stepNumber,
+					shortDescription: this.shortDescription
+				};
 			},
 
 			onRender: function() {

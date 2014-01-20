@@ -14,6 +14,7 @@ define([], function () {
 			'title': 'General Course Settings', 
 			'shortDescription': 'Short description',
 			'longDescription': 'Long description goes here', 
+			'examples': 'Examples are here for sure',
 			'otherResources': '<a href="Resource1">Resource 1</a>', 
 			'model': 'courseModel',
 

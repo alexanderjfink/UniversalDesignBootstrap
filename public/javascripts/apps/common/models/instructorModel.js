@@ -8,8 +8,8 @@ define(['jquery', 'backbone'], function($, Backbone) {
 			title: { type: 'Select', options: ['Professor','Dr','Mr', 'Mrs', 'Ms'] },
 			name: 'Text',
 			degrees: 'Text',
-			email: { validators: ['required', 'email'] },
-			address: { type: 'NestedModel', model: Address }
+			email: { validators: ['required', 'email'] }
+			// address: { type: 'NestedModel', model: Address }
 		},
 
 
