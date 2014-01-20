@@ -1,4 +1,4 @@
-define(['marionette','app/wizard/module'],function(marionette) {
+define(['marionette','../../wizard/module'],function(marionette, wizardModule) {
 
 	// Marionette uses an AppRouter to drop in Controllers. Basically is Controller.method, i.e. '': 'showWizard' = Controller.showWizard
 	return marionette.AppRouter.extend({
@@ -7,7 +7,7 @@ define(['marionette','app/wizard/module'],function(marionette) {
 		},
 
 		appRoutes:{
-			'step/:stepNumber': 'showStep' // this should eventually change, but should for now basically serve as a forward to wizard
+			'/wizard': 'showWizard' // this should eventually change, but should for now basically serve as a forward to wizard
 		}
 	});
 	

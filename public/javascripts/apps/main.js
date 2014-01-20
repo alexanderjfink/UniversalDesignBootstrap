@@ -3,10 +3,9 @@ requirejs.config({
 	paths: {
 
 		// App related paths
-
-		app: '../app',
-		udbapp: '../app/app',
-		vent: '../app/vent',
+		app: '../apps/app',
+		vent: '../apps/vent',
+		apps: '../apps',
 
 		// Major deps paths
 
@@ -38,17 +37,21 @@ requirejs.config({
 		},
 		'underscore': {
 			exports: '_'
-		}
+		},
+		'marionette': {
+			deps: ["backbone"],
+			exports: "marionette"
+		},
 	}
 
 });
 
 require(['jquery',
 		'backbone',
-		'udbapp'], function($, Backbone, UDBApp){
-
-	// Start Marionette application (as defined in app/app.js)
-	UDBApp.start();
+		'app'], function($, Backbone, UniversalDesignBootstrap){
+			
+	// Start Marionette application (as defined in apps/app.js)
+	UniversalDesignBootstrap.start();
 
 	// This makes links hit the router instead of redirecting
 	$(document).on("click", "a[href]:not([data-bypass])", function(evt) {
