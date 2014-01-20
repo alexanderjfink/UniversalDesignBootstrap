@@ -36,32 +36,35 @@ define(['app',
 
 		// // Vents
 		vent.on('WizardModule:step:showStep', function(stepNumber) {
-			stepNumber = stepNumber || 0;
+			// stepNumber = stepNumber || 0;
+			// UniversalDesignBootstrap.header.show(new Header({stepNumber: stepNumber}));
 		});
 
-		vent.on('WizardModule:steps:nextStep', function(nextStep) {
-			//	if nextStep isn't a step, go to step 1
-			//	eventually this should pull wherever the user left off by some smart algorithm and decide which step to bring them to
-			nextStep = nextStep || 0;
-		});
+		// vent.on('WizardModule:steps:nextStep', function(nextStep) {
+		// 	//	if nextStep isn't a step, go to step 1
+		// 	//	eventually this should pull wherever the user left off by some smart algorithm and decide which step to bring them to
+		// 	nextStep = nextStep || 0;
+		// });
 
-		vent.on('WizardModule:steps:prevStep', function(prevStep) {
-			prevStep = prevStep || 0;
-		});
+		// vent.on('WizardModule:steps:prevStep', function(prevStep) {
+		// 	prevStep = prevStep || 0;
+		// });
 
-		vent.on('WizardModule:steps:addAnother', function(addAnother) {
-			// here we are getting whatever model "another" is and adding more!
-		});
+		// vent.on('WizardModule:steps:addAnother', function(addAnother) {
+		// 	// here we are getting whatever model "another" is and adding more!
+		// });
 
-		vent.on('WizardModule:steps:delModel', function(delModel) {
+		// vent.on('WizardModule:steps:delModel', function(delModel) {
 
-		});
+		// });
 
 		// Initializers
 
 		WizardModule.addInitializer(function(){
 			var viewOptions = {
 				// collection : steps
+				stepNumber: 0,
+				title: 'Get Ready to Rock and Roll'
 			};
 
 			UniversalDesignBootstrap.header.show(new Header(viewOptions));

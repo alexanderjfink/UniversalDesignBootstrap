@@ -4,10 +4,10 @@ define(['app','vent'], function (UniversalDesignBootstrap, vent) {
 
 		WizardModule.Controller = {
 			showStep : function(stepNumber) {
-				// send the step number that was requested
-				require(['../views/header','../views/stepCompositeView'], function (Views, StepCompositeView) {
-					vent.trigger('WizardModule:step:showStep', stepNumber.trim() || '');
-					UniversalDesignBootstrap.header.show(new Views.Header({stepNumber: stepNumber}));
+				require(['apps/wizard/views/header','apps/wizard/views/stepCompositeView'], function (Header, StepCompositeView) {
+					// vent.trigger('WizardModule:step:showStep', !!stepNumber.trim() || 0);
+					UniversalDesignBootstrap.header.show(new Header({stepNumber: stepNumber, title: 'Title'}));
+					UniversalDesignBootstrap.main.show(new StepCompositeView({examples: 'Some example data goes here', otherResources: 'Some other resources data goes here'}));
 				});
 			}
 		};

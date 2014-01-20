@@ -23,7 +23,7 @@ requirejs.config({
 		
 		// Templates / Design
 		handlebars: 'handlebars/handlebars.amd',
-		hbs: 'require-handlebars-plugin/hbs', // for tempalting
+		hbs: 'require-handlebars-plugin/hbs', // for templating
 		foundation: 'foundation/js/foundation' // Use Foundation5 for CSS/JS templates
 	},
 	shim: {
@@ -38,10 +38,6 @@ requirejs.config({
 		'underscore': {
 			exports: '_'
 		},
-		'marionette': {
-			deps: ["backbone"],
-			exports: "marionette"
-		},
 	}
 
 });
@@ -50,6 +46,11 @@ require(['jquery',
 		'backbone',
 		'app'], function($, Backbone, UniversalDesignBootstrap){
 			
+	// setup rendering to use handlebars
+	Backbone.Marionette.Renderer.render = function (template, data) {
+		return template(data);
+	};
+
 	// Start Marionette application (as defined in apps/app.js)
 	UniversalDesignBootstrap.start();
 

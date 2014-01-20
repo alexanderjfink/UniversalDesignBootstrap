@@ -38,10 +38,10 @@ define(['marionette','vent'], function (Marionette, vent) {
 		if(Backbone.history){
 
 			// This will later need to change, shouldn't be attached to Wizard
-			require(['apps/wizard/module','apps/wizard/routers/index'], function (Controller, Router) {
+			require(['apps/wizard/module','apps/wizard/routers/index'], function () {
 				Backbone.history.start();
 
-				UniversalDesignBootstrap.startSubApp("WizardModule");
+				UniversalDesignBootstrap.startSubApp('WizardModule');
 
 				if(UniversalDesignBootstrap.getCurrentRoute() === ''){
 					vent.trigger('WizardModule:step:showStep');
