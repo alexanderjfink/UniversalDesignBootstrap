@@ -35,7 +35,9 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 
 			onRender : function() {
 				// need to make a new one of these instances
-				var formToModel = new this.formModel();
+				if (this.formModel) {
+					var formToModel = new this.formModel();
+				}
 
 				// use Backbone-Forms to create a form from this Model instance
 				var form = new Forms({

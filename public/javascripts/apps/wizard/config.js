@@ -1,4 +1,6 @@
-define([], function () {
+define(function (require) {
+
+	var rootModelDir = 'apps/common/models/';
 
 	// TEMPLATE
 	// title: '', // Title of the Step
@@ -9,7 +11,7 @@ define([], function () {
 	// model: '' // name of model -- MUST HAVE SCHEMA object defined re: backbone-forms
 
 	// Ordered array of Steps
-	return [
+	var orderedSteps = [
 		{
 			'title': 'General Course Settings', 
 			'shortDescription': 'Short description',
@@ -72,4 +74,19 @@ define([], function () {
 			'moreThanOne': true
 		}		
 	];
+
+	// NO CONFIGURATION PAST THIS POINT
+
+	// Load the models for the app based on specifications above
+
+	var loadedModels = {};
+
+	for (var step in orderedSteps) {
+		if (orderedSteps.hasOwnProperty(step)) {
+			console.log(rootModelDir + orderedSteps[step].model);
+			loadedModels[orderedSteps[step].model] = require(rootModelDir + orderedSteps[step].model);
+		}
+	}
+
+	return orderedSteps;
 });

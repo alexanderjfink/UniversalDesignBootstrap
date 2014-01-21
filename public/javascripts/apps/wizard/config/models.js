@@ -9,6 +9,8 @@ define(function(require) {
 		sessionModel: require('apps/common/models/sessionModel'),
 		syllabusModel: require('apps/common/models/syllabusModel')
 	}
+
+
 	// var rootModelDir = 'apps/common/models/';
 
 	// var models = {
@@ -30,8 +32,6 @@ define(function(require) {
 	// 		toReturn[model] = require(rootModelDir + models[model]);
 	// 	}
 	// }
-
-	// console.log(JSON.stringify(toReturn));
 
 	// return toReturn;
 
