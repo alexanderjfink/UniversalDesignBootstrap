@@ -75,18 +75,27 @@ define(function (require) {
 		}		
 	];
 
-	// NO CONFIGURATION PAST THIS POINT
-
-	// Load the models for the app based on specifications above
-
-	var loadedModels = {};
-
+	// perhaps this is bugging out b/c it is being executed too early? why here, but not in an object like below?
 	for (var step in orderedSteps) {
 		if (orderedSteps.hasOwnProperty(step)) {
-			console.log(rootModelDir + orderedSteps[step].model);
-			loadedModels[orderedSteps[step].model] = require(rootModelDir + orderedSteps[step].model);
+			orderedSteps[step].loadedModel = require(rootModelDir + orderedSteps[step].model);
 		}
 	}
 
 	return orderedSteps;
+
+	// NO CONFIGURATION PAST THIS POINT
+
+	// Load the models for the app based on specifications above
+
+	// return {
+	// 	activityModel: require('apps/common/models/activityModel'),
+	// 	assessmentModel: require('apps/common/models/assessmentModel'),
+	// 	courseModel: require('apps/common/models/courseModel'),
+	// 	instructorModel: require('apps/common/models/instructorModel'),
+	// 	outcomeModel: require('apps/common/models/outcomeModel'),
+	// 	policyModel: require('apps/common/models/policyModel'),
+	// 	sessionModel: require('apps/common/models/sessionModel'),
+	// 	syllabusModel: require('apps/common/models/syllabusModel')
+	// }
 });
