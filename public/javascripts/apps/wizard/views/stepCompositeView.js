@@ -1,4 +1,4 @@
-define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config/models'], function (require, UniversalDesignBootstrap, stepCompositeViewTemplate, Forms, Models) {
+define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config','underscore'], function (require, UniversalDesignBootstrap, stepCompositeViewTemplate, Forms, Models, _) {
 	UniversalDesignBootstrap.module('WizardModule.Views', function(Views, UniversalDesignBootstrap, Backbone, Marionette, $, _){
 	
 		Views.StepCompositeView = Marionette.CompositeView.extend({
@@ -20,7 +20,8 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 				this.otherResources = options.otherResources;
 
 				if (options.model) { // pull in the required model
-					this.formModel = Models[options.model];
+					// this.FormModel = Models[options.model];
+					this.FormModel = _.find(Models, function(obj) { return obj.model == options.model }).loadedModel;
 				}
 			},
 
@@ -35,8 +36,8 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 
 			onRender : function() {
 				// need to make a new one of these instances
-				if (this.formModel) {
-					var formToModel = new this.formModel();
+				if (this.FormModel) {
+					var formToModel = new this.FormModel();
 				}
 
 				// use Backbone-Forms to create a form from this Model instance
