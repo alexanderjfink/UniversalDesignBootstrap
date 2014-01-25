@@ -63,16 +63,16 @@ Main application interface to fill in navigation, render other modules, etc.
 ## The Stack
 
 ### Front-end Design/Templating
-DustJS + Foundation5
+Handlebars + Foundation5
 
 ### Front-end JS Libraries
-Wreqr (Vent) + Backbone-Forms + Backbone-Associations
+Backbone-Forms + Backbone-Associations + JQueryUI
 
 ### Front-end Foundations
-RequireJS + Backbone + Backbone.Marionette + Lodash + JQuery
+RequireJS + Backbone + Backbone.Marionette + Backbone.Wreqr + Lodash + JQuery
 
 ### Backend Apps/Libraries
-Express + Mongoose
+Hapi + Handlebars
 
 ### Backend Foundations
-Node.js + MongoDB
+Node.js + RethinkDB
