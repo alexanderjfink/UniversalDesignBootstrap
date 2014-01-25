@@ -1,4 +1,9 @@
-define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config','underscore'], function (require, UniversalDesignBootstrap, stepCompositeViewTemplate, Forms, Models, _) {
+define(['require',
+		'app',
+		'hbs!../templates/stepCompositeView', 
+		'forms',
+		'../config',
+		'autocomplete'], function (require, UniversalDesignBootstrap, stepCompositeViewTemplate, Forms, Models, autocomplete) {
 	UniversalDesignBootstrap.module('WizardModule.Views', function(Views, UniversalDesignBootstrap, Backbone, Marionette, $, _){
 	
 		Views.StepCompositeView = Marionette.CompositeView.extend({
@@ -28,7 +33,7 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 
 			// Rendering
 
-			onRender : function() {
+			onRender: function() {
 				// need to make a new one of these instances
 				if (this.FormModel) {
 					var formToModel = new this.FormModel();
@@ -40,6 +45,10 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 				}).render();
 
 				this.$el.append(form.el);
+			},
+
+			onShow: function() {
+				$('[name="name"]').autocomplete({ source: [ 'c++', 'java', 'php', 'coldfusion', 'javascript', 'asp', 'ruby' ] });
 			},
 
 			// UI Events

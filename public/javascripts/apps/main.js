@@ -11,6 +11,8 @@ requirejs.config({
 
 		text: 'requirejs-text/text',
 		jquery: 'jquery/jquery',
+		jqueryui: 'jqueryui/ui/jquery-ui',
+		autocomplete: 'jqueryui/ui/jquery.ui.autocomplete',
 		// loading lodash, but apparently need to pretend it is underscore
 		underscore: 'lodash/dist/lodash', 
 
@@ -42,6 +44,12 @@ requirejs.config({
 		'underscore': {
 			exports: '_'
 		},
+		'jqueryui': {
+			deps: ['jquery']
+		},
+		'autocomplete': {
+			deps: ['jqueryui']
+		}
 	}
 
 });

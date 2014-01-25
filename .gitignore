@@ -2,3 +2,5 @@ node_modules
 public/javascripts/vendor/*
 !public/javascripts/vendor/plugins
 server/config/**
+rethinkdb_data
+*.log

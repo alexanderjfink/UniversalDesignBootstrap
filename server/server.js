@@ -1,69 +1,76 @@
 // DEPENDENCIES
 // ============
 
-var Config =  global.Config = require('./config/config.js').config;
-    express = require("express"),
-    http =    require("http"),
-    port =    ( process.env.PORT || Config.listenPort ),
-    server =  module.exports = express(),
-    cons =    require('consolidate')
-    mongoose =     require('mongoose'),
-    API =     require('./API');
+var Config = global.Config = require('./config/config.js').config;
+    port = ( process.env.PORT || Config.listenPort ),
+    cons = require('consolidate'),
+    Hapi = require('hapi'),
+    r = require('rethinkdb');
+    // API = require('./API');
 
 // DATABASE CONFIGURATION
 // ======================
 
 // Connect to Database
-mongoose.connect('mongodb://' + Config.database.IP + ':' +Config.database.port + '/' + Config.database.name);
-
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'DB connection error:'));
-db.once('open', function callback () {
-  console.log('Connected to ' + Config.database.name);
+var connection = null;
+r.connect({host: Config.database.IP, port: Config.database.port}, function (err, conn) {
+  if (err) throw err;
+  connection = conn;
+  console.log('Connected to RethinkDB at ' + Config.database.IP + ':' + Config.database.port);
 });
 
 // DATABASE SCHEMAS
 // ================
 
-var schema = require('./schemas/schema');
+// var schema = require('./schemas/schema');
 
 // SERVER CONFIGURATION
 // ====================
 
-server.configure(function() {
+var options = {
+  views: {
+    path: __dirname + '/templates',
+    partialsPath: __dirname + '/templates/partials',
+    engines: {
+      hbs: 'handlebars'
+    }
+  }
+}
 
-  server.use(express["static"](__dirname + "/../public"));
+var server = Hapi.createServer(Config.IP, Config.listenPort, options);
 
-  server.use(express.errorHandler({
+var index = {
+  handler: function (request, reply) {
+    reply.view('index.hbs', {title: 'UniversalDesignBootstrap'});
+  }
+};
 
-    dumpExceptions: true,
+// server static publics
+server.route({
+  method: 'GET',
+  path: '/{path*}',
+  handler: {
+    directory: {
+      path: __dirname + '/../public',
+      listing: false,
+      index: true
+    }
+  }
+});
 
-    showStack: true
+// app routes
+server.route({
+  method: 'GET',
+  path: '/',
+  config: index
+});
 
-  }));
-
-  server.use(express.bodyParser());
-
-  server.use(express.cookieParser());
-
-  server.use(express.session({ secret: Config.sessionSecret }));
-
-  server.use(server.router);
-
-  server.set('views', __dirname + '/views');
-
-  server.engine('dust', cons.dust);
-  server.set('view engine', 'dust') // set dust as templating engine
-
-
+server.start(function() {
+  console.log('\n\nWelcome to UniversalDesignBootstrap!\n\nPlease go to http://localhost:' + port + ' to start using the app\n\n');
 });
 
 // API
 // ===
 
-API.api(server, schema);
+// API.api(server, schema);
 
-// Start Node.js Server
-http.createServer(server).listen(port);
-
-console.log('\n\nWelcome to UniversalDesignBootstrap!\n\nPlease go to http://localhost:' + port + ' to start using the app\n\n');

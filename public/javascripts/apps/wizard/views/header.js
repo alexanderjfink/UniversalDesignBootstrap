@@ -20,7 +20,7 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 			},
 
 			// fake model
-			serializeData: function(){
+			serializeData: function() {
 				return {
 					title: this.title,
 					stepNumber: this.stepNumber,
