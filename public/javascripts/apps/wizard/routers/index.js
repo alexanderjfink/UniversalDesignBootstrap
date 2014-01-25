@@ -1,5 +1,6 @@
 define(['app'],function(UniversalDesignBootstrap) {
 	UniversalDesignBootstrap.module('Routers.WizardModule', function(WizardModuleRouter, UniversalDesignBootstrap, Backbone, Marionette, $, _) {
+
 		// Marionette uses an AppRouter to drop in Controllers. Basically is Controller.method, i.e. '': 'showWizard' = Controller.showWizard
 		WizardModuleRouter.Router = Marionette.AppRouter.extend({
 			before: function () {
@@ -8,28 +9,24 @@ define(['app'],function(UniversalDesignBootstrap) {
 
 			appRoutes:{
 				'': 'showStep',
-				'step/:stepNumber': 'showStep' // this should eventually change, but should for now basically serve as a forward to wizard
+				'step/:stepNumber': 'showStep'
 			}
 		});
 
-		
+		// Always check that WizardModule is started and do any necessary surrounding updates for general action execution in this module
 		var executeAction = function(action, arg) {
 			UniversalDesignBootstrap.startSubApp("WizardModule");
 			action(arg);
 			// UniversalDesignBootstrap.execute("set:active:header", "contacts");
 		};
 
+
+		// Public API for this Modules' routing
 		var API = {
-			// listContacts: function(criterion){
-			// 	require(["apps/contacts/list/list_controller"], function(ListController){
-			// 		executeAction(ListController.listContacts, criterion);
-			// 	});
-			// },
-
+			
+			// shows whatever step should be shown in url #step/:stepNumber
 			showStep: function(stepNumber){
-				// Need to figure out why the UniversalDesignBoostrap.on event below isn't being triggered
-
-				require(['../apps/wizard/controllers/index'], function(WizardController){
+				require(['../apps/wizard/controllers/index'], function(WizardController) {
 					if (!stepNumber) {
 						stepNumber = 0;
 					}
@@ -39,42 +36,22 @@ define(['app'],function(UniversalDesignBootstrap) {
 				});
 			},
 
-			// editContact: function(id){
-			// 	require(["apps/contacts/edit/edit_controller"], function(EditController){
-			// 		executeAction(EditController.editContact, id);
-			// 	});
-			// }
+			// add another model for the same collection
+			addAnother: function(stepNumber) {
+				require(['../apps/wizard/controllers/index'], function(WizardController) {
+
+				});
+			}
 		};
 
-		// ContactManager.on("contacts:list", function(){
-		//   ContactManager.navigate("contacts");
-		//   API.listContacts();
-		// });
-
-		// ContactManager.on("contacts:filter", function(criterion){
-		//   if(criterion){
-		// 	ContactManager.navigate("contacts/filter/criterion:" + criterion);
-		//   }
-		//   else{
-		// 	ContactManager.navigate("contacts");
-		//   }
-		// });
-
-		// ContactManager.on("contact:show", function(id){
-		//   ContactManager.navigate("contacts/" + id);
-		//   API.showContact(id);
-		// });
-
-		// ContactManager.on("contact:edit", function(id){
-		//   ContactManager.navigate("contacts/" + id + "/edit");
-		//   API.editContact(id);
-		// });
-
+		// Global events that can be triggered in this module
 		UniversalDesignBootstrap.on('WizardModule:step:showStep', function(stepNumber) {
 			UniversalDesignBootstrap.navigate('step/' + stepNumber);
 			API.showStep(stepNumber);
 		});
 
+
+		// Setup the Marionette controller
 		UniversalDesignBootstrap.addInitializer(function() {
 			new WizardModuleRouter.Router({
 				controller: API

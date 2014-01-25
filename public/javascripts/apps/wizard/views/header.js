@@ -2,7 +2,12 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 	UniversalDesignBootstrap.module('WizardModule.Views', function(Views, UniversalDesignBootstrap, Backbone, Marionette, $, _){
 
 		Views.Header = Marionette.ItemView.extend({
+
+			// Properties
+
 			template: templates.header,
+
+			// Backbone.Marionette
 
 			initialize: function(options) {
 				var options = options || {};
@@ -21,8 +26,17 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 				};
 			},
 
+			// Rendering
+
 			onRender: function() {
 			}
+
+			// UI Events
+
+			// Backbone Events
+
+			// Methods
+			
 		});
 
 	});

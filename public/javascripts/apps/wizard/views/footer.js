@@ -2,16 +2,11 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 	UniversalDesignBootstrap.module('WizardModule.Views', function(Views, ContactManager, Backbone, Marionette, $, _){
 
 		Views.Footer = Marionette.ItemView.extend({
+			// Properties
+
 			template : templates.footer,
 
-			ui: {
-
-			},
-
-			events: {
-				'click .add-another': 'onButtonPressAddAnother',
-				'click .next-step': 'onButtonPressNextStep'
-			},
+			// Backbone.Marionette
 
 			initialize: function(options) {
 				var options = options || {};
@@ -26,8 +21,23 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 				};
 			},
 
+			events: {
+				'click .add-another': 'onButtonPressAddAnother',
+				'click .next-step': 'onButtonPressNextStep'
+			},
 
-			// ui methods
+			// Rendering
+			
+			onRender: function () {
+
+			},
+
+			// UI Events
+
+			ui: {
+
+			},
+
 			onButtonPressAddAnother: function(evt) {
 				this.addAnother();
 			},
@@ -36,14 +46,19 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 				this.showNextStep();
 			},
 
-			// methods
+			// Backbone Events
+
+			// Methods
+
 			addAnother: function() {
 
 			},
 
 			showNextStep: function() {
-				currentStepNumber = UniversalDesignBootstrap.getCurrentRoute().split(['/'])[1];
 
+
+				// Route to next step
+				currentStepNumber = UniversalDesignBootstrap.getCurrentRoute().split(['/'])[1];
 				UniversalDesignBootstrap.trigger("WizardModule:step:showStep", (parseInt(currentStepNumber) + 1));
 			}
 		});

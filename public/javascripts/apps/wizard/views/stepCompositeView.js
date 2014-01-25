@@ -2,16 +2,14 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 	UniversalDesignBootstrap.module('WizardModule.Views', function(Views, UniversalDesignBootstrap, Backbone, Marionette, $, _){
 	
 		Views.StepCompositeView = Marionette.CompositeView.extend({
+			
+			// Properties
+			
 			template: stepCompositeViewTemplate,
 			// itemView: ItemView,
 			// itemViewContainer : '#todo-list',
 
-			ui : {
-				// toggle : '#toggle-all'
-			},
-
-			events : {
-			},
+			// Backbone.Marionette
 
 			initialize : function(options) {
 				// this.bindTo(this.collection, 'all', this.updateToggleCheckbox, this);
@@ -32,6 +30,10 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 				}
 			},
 
+			events : {
+			},
+
+			// Rendering
 
 			onRender : function() {
 				// need to make a new one of these instances
@@ -47,18 +49,15 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 				this.$el.append(form.el);
 			},
 
-			updateToggleCheckbox : function() {
-				// function reduceCompleted(left, right) { return left && right.get('completed'); }
-				// var allCompleted = this.collection.reduce(reduceCompleted,true);
-				// this.ui.toggle.prop('checked', allCompleted);
-			},
+			// UI Events
 
-			onToggleAllClick : function(evt) {
-				// var isChecked = evt.currentTarget.checked;
-				// this.collection.each(function(todo){
-				//   todo.save({'completed': isChecked});
-				// });
+			ui : {
+				// toggle : '#toggle-all'
 			}
+
+			// Backbone Events
+
+			// Methods
 		});
 
 	});

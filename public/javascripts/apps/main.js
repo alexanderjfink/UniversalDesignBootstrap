@@ -11,20 +11,24 @@ requirejs.config({
 
 		text: 'requirejs-text/text',
 		jquery: 'jquery/jquery',
-		underscore: 'lodash/dist/lodash', // loading lodash, but apparently need to pretend it is underscore
+		// loading lodash, but apparently need to pretend it is underscore
+		underscore: 'lodash/dist/lodash', 
 
 		// Backbone & plugins
 
-		backbone: 'backbone/backbone', // Backbone and plugins
+		backbone: 'backbone/backbone', 
 		marionette: 'backbone.marionette/lib/core/amd/backbone.marionette',
 		'backbone.wreqr': 'backbone.wreqr/lib/amd/backbone.wreqr',
 		'backbone.babysitter': 'backbone.babysitter/lib/amd/backbone.babysitter',
 		forms: 'backbone-forms/distribution.amd/backbone-forms',
 		
 		// Templates / Design
+
+		// for templating
 		handlebars: 'handlebars/handlebars.amd',
-		hbs: 'require-handlebars-plugin/hbs', // for templating
-		foundation: 'foundation/js/foundation' // Use Foundation5 for CSS/JS templates
+		hbs: 'require-handlebars-plugin/hbs', 
+		// Use Foundation5 for CSS/JS templates
+		foundation: 'foundation/js/foundation' 
 	},
 	shim: {
 		'backbone': {
@@ -45,11 +49,6 @@ requirejs.config({
 require(['jquery',
 		'backbone',
 		'app'], function($, Backbone, UniversalDesignBootstrap){
-			
-	// setup rendering to use handlebars
-	Backbone.Marionette.Renderer.render = function (template, data) {
-		return template(data);
-	};
 
 	// Start Marionette application (as defined in apps/app.js)
 	UniversalDesignBootstrap.start();

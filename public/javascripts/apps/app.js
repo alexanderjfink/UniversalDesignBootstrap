@@ -3,13 +3,16 @@ define(['marionette','vent'], function (Marionette, vent) {
 	// set up the app instance
 	var UniversalDesignBootstrap = new Marionette.Application();
 
-	// configuration, setting up regions, etc ... - for the whole application, needs to use modules
+	// App Configuration
 
+	// configuration, setting up regions, etc ... - for the whole application, needs to use modules
 	UniversalDesignBootstrap.addRegions({
 		header: '.header',
 		main: '.main',
 		footer: '.footer'
 	});
+
+	// App Methods
 
 	UniversalDesignBootstrap.navigate = function(route,  options){
 		options || (options = {});
@@ -34,6 +37,8 @@ define(['marionette','vent'], function (Marionette, vent) {
 		}
 	};
 
+	// App Events
+
 	UniversalDesignBootstrap.on("initialize:after", function(){
 		if(Backbone.history){
 
@@ -44,7 +49,7 @@ define(['marionette','vent'], function (Marionette, vent) {
 				UniversalDesignBootstrap.startSubApp('WizardModule');
 
 				if(UniversalDesignBootstrap.getCurrentRoute() === ''){
-					vent.trigger('WizardModule:step:showStep');
+					UniversalDesignBootstrap.trigger('WizardModule:step:showStep');
 				}
 			});
 		}
