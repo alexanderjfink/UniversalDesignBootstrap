@@ -14,14 +14,14 @@ define(function (require) {
 	var orderedSteps = [
 		{
 			'title': 'General Course Settings', 
-			'shortDescription': 'Short description',
+			'shortDescription': 'A few general overview details for your course.',
 			'longDescription': 'Long description goes here', 
 			'examples': 'Examples are here for sure',
 			'otherResources': '<a href="Resource1">Resource 1</a>', 
 			'model': 'courseModel',
 
 			'completed': false,
-			'moreThanOne': false
+			'moreThanOne': false //  probably should just replace this with collections?
 		},
 		{
 			'title': 'Outcomes', 

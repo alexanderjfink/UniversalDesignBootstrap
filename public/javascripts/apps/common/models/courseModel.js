@@ -6,7 +6,14 @@ define(['jquery', 'backbone'], function($, Backbone) {
 		// Properties
 		schema: {
 			name: 'Text',
-			description: 'TextArea'
+			description: 'TextArea',
+			category: { 
+				type: 'Select', 
+				options: ['Weeks', 'Themes'] 
+			},
+			categoryNumber: { 
+				type: 'Number' 
+			}
 		},
 
 		// Backbone

@@ -30,6 +30,9 @@ define(['app'],function(UniversalDesignBootstrap) {
 				// Need to figure out why the UniversalDesignBoostrap.on event below isn't being triggered
 
 				require(['../apps/wizard/controllers/index'], function(WizardController){
+					if (!stepNumber) {
+						stepNumber = 0;
+					}
 
 					UniversalDesignBootstrap.navigate('step/' + stepNumber);
 					executeAction(WizardController.showStep, stepNumber);

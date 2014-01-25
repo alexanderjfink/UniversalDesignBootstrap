@@ -11,7 +11,6 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 			},
 
 			events : {
-				// 'click #toggle-all' : 'onToggleAllClick'
 			},
 
 			initialize : function(options) {
@@ -19,8 +18,8 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 				this.example = options.example;
 				this.otherResources = options.otherResources;
 
-				if (options.model) { // pull in the required model
-					// this.FormModel = Models[options.model];
+				if (options.model) { 
+					// pull in the required model
 					this.FormModel = _.find(Models, function(obj) { return obj.model == options.model }).loadedModel;
 				}
 			},
