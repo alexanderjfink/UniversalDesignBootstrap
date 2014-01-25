@@ -11,13 +11,13 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 			initialize: function(options) {
 				var options = options || {};
 				
-				this.addAnother = this.addAnother || false;
+				this.moreThanOne = options.moreThanOne || false;
 			},
 
 			// fake model
 			serializeData: function(){
 				return {
-					addAnother: this.addAnother
+					moreThanOne: this.moreThanOne
 				};
 			},
 
@@ -29,7 +29,13 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 			// Rendering
 
 			onRender: function () {
+			},
 
+			onShow: function() {
+				// Check whether we should be able to add more of this one
+				if (!this.moreThanOne) {
+					$('.add-another').hide();
+				}
 			},
 
 			// UI Events
