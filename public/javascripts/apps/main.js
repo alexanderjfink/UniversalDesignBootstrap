@@ -53,6 +53,13 @@ require(['jquery',
 	// Start Marionette application (as defined in apps/app.js)
 	UniversalDesignBootstrap.start();
 
+	// Load up Foundation5 once page is loaded
+	setTimeout(function() {
+		require(['foundation'], function (foundation) {
+			$(document).foundation();
+		});
+	});
+
 	// This makes links hit the router instead of redirecting
 	$(document).on("click", "a[href]:not([data-bypass])", function(evt) {
 		// Get the absolute anchor href.

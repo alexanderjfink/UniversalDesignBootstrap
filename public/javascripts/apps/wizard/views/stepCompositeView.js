@@ -12,10 +12,7 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 			// Backbone.Marionette
 
 			initialize : function(options) {
-				// this.bindTo(this.collection, 'all', this.updateToggleCheckbox, this);
-				this.example = options.example;
-				this.otherResources = options.otherResources;
-
+				// this.bindTo(this.collection, 'all', this.updateToggleCheckbox, this)
 				if (options.model) { 
 					// pull in the required model
 					this.FormModel = _.find(Models, function(obj) { return obj.model == options.model }).loadedModel;
@@ -24,10 +21,6 @@ define(['require','app','hbs!../templates/stepCompositeView', 'forms','../config
 
 			// fake model
 			serializeData: function(){
-				return {
-					example: this.example,
-					otherResources: this.otherResources
-				}
 			},
 
 			events : {

@@ -10,12 +10,12 @@ define(['app','vent'], function (UniversalDesignBootstrap, vent) {
 					UniversalDesignBootstrap.header.show(new Header({
 						stepNumber: stepNumber, 
 						title: Steps[stepNumber].title, 
-						shortDescription: Steps[stepNumber].shortDescription
+						shortDescription: Steps[stepNumber].shortDescription,
+						examples: Steps[stepNumber].examples, 
+						otherResources: Steps[stepNumber].otherResources
 					}));
 					UniversalDesignBootstrap.main.show(new StepCompositeView({
 						model: Steps[stepNumber].model, 
-						examples: Steps[stepNumber].examples, 
-						otherResources: Steps[stepNumber].otherResources
 					}));
 					UniversalDesignBootstrap.footer.show(new Footer({
 						moreThanOne: Steps[stepNumber].moreThanOne

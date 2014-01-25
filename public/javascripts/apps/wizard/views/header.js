@@ -15,6 +15,8 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 				this.stepNumber = options.stepNumber || 0;
 				this.title = options.title || 'Loading Steps...';
 				this.shortDescription = options.shortDescription;
+				this.example = options.example;
+				this.otherResources = options.otherResources;
 			},
 
 			// fake model
@@ -22,16 +24,30 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 				return {
 					title: this.title,
 					stepNumber: this.stepNumber,
-					shortDescription: this.shortDescription
+					shortDescription: this.shortDescription,
+					example: this.example,
+					otherResources: this.otherResources
 				};
+			},
+
+			events: {
+				'click .instructions': 'onClickShowrevealModal',
+				'click .close-reveal-modal': 'onClickCloseRevealModal'
 			},
 
 			// Rendering
 
 			onRender: function() {
-			}
+			},
 
 			// UI Events
+
+			onClickShowrevealModal: function(evt) {
+				$('#instructionsModal').foundation('reveal','open');
+			},
+			onClickCloseRevealModal: function(evt) {
+				$('#instructionsModal').foundation('reveal','close');
+			}
 
 			// Backbone Events
 

@@ -1,3 +1,13 @@
 <h2>Course Design Wizard</h2>
-<h3 class="subheader">Step {{ stepNumber }}: <small>{{ title }}</small></h3>
+<h3 class="subheader">Step {{ stepNumber }}: <small>{{ title }}</small><input type="button" class="button small secondary right instructions" value="Examples and Resources" /></h3>
 <p>{{ shortDescription }}</p>
+
+<div id="instructionsModal" class="reveal-modal" data-reveal> 
+	<h2>Examples</h2>
+	<p>For example: {{ examples }}</p>
+	
+	<h2>Other Resources</h2> 
+	<p>{{ otherResources }}</p> 
+
+	<a class="close-reveal-modal">&#215;</a>
+</div>
