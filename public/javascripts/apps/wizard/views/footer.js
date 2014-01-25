@@ -27,7 +27,7 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 			},
 
 			// Rendering
-			
+
 			onRender: function () {
 
 			},
@@ -51,15 +51,18 @@ define(['app','../templates'], function (UniversalDesignBootstrap, templates) {
 			// Methods
 
 			addAnother: function() {
-
+				// TODO: Make sure model is saved and validated
+				UniversalDesignBootstrap.trigger('WizardModule:step:showStep', this.getCurrentStep());
 			},
 
 			showNextStep: function() {
-
-
 				// Route to next step
-				currentStepNumber = UniversalDesignBootstrap.getCurrentRoute().split(['/'])[1];
-				UniversalDesignBootstrap.trigger("WizardModule:step:showStep", (parseInt(currentStepNumber) + 1));
+				UniversalDesignBootstrap.trigger('WizardModule:step:showStep', (this.getCurrentStep() + 1));
+			},
+
+			// grab current step from the current route
+			getCurrentStep: function() {
+				return parseInt(UniversalDesignBootstrap.getCurrentRoute().split(['/'])[1]);
 			}
 		});
 
