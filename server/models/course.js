@@ -2,37 +2,48 @@
  * Module dependencies
  */
 
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema,
-	_ = require('lodash');
+ module.exports = function (Mongoose) {
 
-/**
- * Course Schema
- */
+	var Schema = Mongoose.Schema;
 
-var CourseSchema = new Schema({
-	name: { type: String, default: '', required: true },
-	description: { type: String },
-	categories: { type: String },
-	categoriesNumber: {type: Number }
-}, {
-	collection: 'courses'
-});
+	Mongoose.model('course', new Schema({
 
-/**
- * Virtuals
- */
+		name: { type: String, default: '', required: true },
+		description: { type: String },
+		categories: { type: String },
+		categoriesNumber: {type: Number }
 
-/**
- * Validations
- */
+	}, { collection: 'courses' }));
 
- /**
-  * Pre-save hook
-  */
+	return Mongoose.model('course');
+};
 
- /**
-  * Methods
-  */
+// var mongoose = require('mongoose'),
+// 	Schema = mongoose.Schema,
+// 	_ = require('lodash');
 
-mongoose.model('course', CourseSchema);
+// /**
+//  * Course Schema
+//  */
+
+// var CourseSchema = new Schema({
+
+// }, {
+// 	collection: 'courses'
+// });
+
+// /**
+//  * Virtuals
+//  */
+
+// /**
+//  * Validations
+//  */
+
+//  /**
+//   * Pre-save hook
+//   */
+
+//  /**
+//   * Methods
+//   */

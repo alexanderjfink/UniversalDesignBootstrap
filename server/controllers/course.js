@@ -1,24 +1,32 @@
-var mongoose = require('mongoose'),
-	_ = require('lodash'),
-	Course = mongoose.model('Course');
+var _ = require('lodash')
+,   Restify = require('hapi-restify');
 
-var CourseController = {
-	create: function(request, reply) {
-	},
-
-	read: function(request, reply) {
-		if (request.params.id) {
-			reply(Course.findById(request.params.id).exec());
-		}
-	},
-
-	update: function(request, reply) {
-			
-	},
-
-	delete: function(request, reply) {
-		return Course.findByIdAndRemove(request.params.id).exec();
-	}
+var CourseController = module.exports = function CourseController() {
+  Restify.Controller.prototype.constructor.apply(this, arguments);
 };
 
-exports = module.exports = CourseController;
+_.extend(
+  CourseController.prototype,
+  Restify.Controller.prototype
+);
+
+_.extend(
+  CourseController.prototype,
+  {
+    init: function () {
+      Restify.Controller.prototype.init.call(this);
+      this.app.routes.push({
+        method: 'GET', path: '/' + this.name + '/top',
+        config: { handler: this.getTopCourses.bind(this) }
+      });
+    },
+
+    getTopCourses: function (request) {
+      this.model.find({})
+        .sort({'views': -1 })
+        .exec(function(err, model) {
+          request.reply(err || model);
+        });
+    }
+  }
+);
