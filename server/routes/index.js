@@ -23,9 +23,3 @@ module.exports = [
 		config: controllers.index
 	}
 ];
-
-// module.exports = [
-//     { method: 'GET', path: '/products', config: { handler: getProducts, query: { name: Types.String() } } },
-//     { method: 'GET', path: '/products/{id}', config: { handler: getProduct } },
-//     { method: 'POST', path: '/products', config: { handler: addProduct, payload: 'parse', schema: { name: Types.String().required().min(3) }, response: { id: Types.Number().required() } } }
-// ];

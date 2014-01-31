@@ -2,8 +2,8 @@
  * Module dependencies
  */
 
-var r = require('rethinkdb'),
-	Schema = require('jugglingdb').Schema,
+var mongoose = require('mongoose'),
+	Schema = mongoose.Schema,
 	_ = require('lodash');
 
 /**
@@ -12,9 +12,11 @@ var r = require('rethinkdb'),
 
 var CourseSchema = new Schema({
 	name: { type: String, default: '', required: true },
-	description: { type: Schema.Text },
-	categories: String,
-	categoriesNumber: Number,
+	description: { type: String },
+	categories: { type: String },
+	categoriesNumber: {type: Number }
+}, {
+	collection: 'courses'
 });
 
 /**
@@ -32,3 +34,5 @@ var CourseSchema = new Schema({
  /**
   * Methods
   */
+
+mongoose.model('course', CourseSchema);

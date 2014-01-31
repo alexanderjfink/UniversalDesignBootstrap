@@ -1,47 +1,23 @@
 // DEPENDENCIES
 // ============
 
-var Config = global.Config = require('./config/config.js').config;
-		ipAddress = ( Config.IP || '0.0.0.0' ),
-		port = ( parseInt(process.env.PORT) || Config.listenPort ),
-		cons = require('consolidate'),
-		Hapi = require('hapi'),
-		r = require('rethinkdb'),
-
-		routes = require('./routes');
+var	env = process.env.NODE_ENV || 'development',
+	Config = global.Config = require('./config/config.js').config[env];
+	ipAddress = ( Config.IP || '0.0.0.0' ),
+	port = ( parseInt(process.env.PORT) || Config.listenPort ),
+	cons = require('consolidate'),
+	Hapi = require('hapi'),
+	Restify = require('hapi-restify'),
+	mongoose = require('mongoose');
 
 // DATABASE CONFIGURATION
 // ======================
 
-// Connect to Database
-var connection = null,
-		dbConfig = {
-			host: process.env.RDB_HOST || Config.database.IP, 
-			port: parseInt(process.env.RDB_PORT) || Config.database.port,
-			db: process.env.RDB_DB || Config.database.name,
-			tables: {
-				'activities': 'id',
-				'assessments': 'id',
-				'courses': 'id',
-				'instructors': 'id',
-				'outcomes': 'id',
-				'policies': 'id',
-				'sessions': 'id',
-				'syllabi': 'id',
-				'users'
-			}
-		};
+// Bootstrap db connection
+mongoose.connect(Config.db);
 
-r.connect(dbConfig, function (err, conn) {
-		if (err) throw err;
-		connection = conn;
-		console.log('Connected to RethinkDB database ' + dbConfig.db + ' at ' + dbConfig.host + ':' + dbConfig.port);
-});
-
-// DATABASE SCHEMAS
-// ================
-
-// var schema = require('./schemas/schema');
+// Bootstrap models
+require('./models')();
 
 // SERVER CONFIGURATION
 // ====================
@@ -56,7 +32,8 @@ var options = {
 	}
 }
 
-var server = Hapi.createServer(ipAddress, port, options);
+var server = Hapi.createServer(ipAddress, port, options),
+	routes = require(__dirname + '/routes');
 
 // Drop in routes...
 server.route(routes);
